@@ -30,6 +30,8 @@ db.connect(() => {
 const schema = require("./schema/schema");
 app.use("/graphql", graphql({ schema, graphiql: true }));
 
-app.listen(4000, () => {
+
+var port = process.env.PORT || 3000;
+app.listen(port, () => {
   console.log("Listening on port 4000");
 });
