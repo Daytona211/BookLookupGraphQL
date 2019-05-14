@@ -8,10 +8,10 @@ app.get("/", (req, res)=>{
 })
 
 const db = new Client({
-  user: "daytona",
-  host: process.env.DATABASE_URL,
-  database: "booklookup",
-  password: "123456789",
+  user: "jdcmfswfoasasa",
+  host: "ec2-54-163-226-238.compute-1.amazonaws.com",  
+  database: "d14n9n2ii7vbu5",
+  password: "0cc20c0a9be1623865e96b17726981adcfe03e4215fe40aadf8d76fd78fe4d90",
   port: 5432
 });
 module.exports.db = db;
@@ -19,13 +19,13 @@ db.connect(() => {
   console.log("Connected to DB");
 });
 
-// db.query(`SELECT * FROM BOOKS`, (err, res) => {
-//   if (err) {
-//     console.log(err.stack);
-//   } else {
-//     console.log(res.rows[0]);
-//   }
-// });
+db.query(`SELECT * FROM BOOKS`, (err, res) => {
+  if (err) {
+    console.log(err.stack);
+  } else {
+    console.log(res.rows[0]);
+  }
+});
 
 const schema = require("./schema/schema");
 app.use("/graphql", graphql({ schema, graphiql: true }));
@@ -33,5 +33,5 @@ app.use("/graphql", graphql({ schema, graphiql: true }));
 
 var port = process.env.PORT || 3000;
 app.listen(port, () => {
-  console.log("Listening on port 4000");
+  console.log("Listening on port " + port);
 });
