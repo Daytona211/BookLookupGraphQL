@@ -3,6 +3,10 @@ const graphql = require("express-graphql");
 const { Client } = require("pg");
 const app = express();
 
+app.get("/", (req, res)=>{
+    res.send("WORKS");
+})
+
 const db = new Client({
   user: "daytona",
   host: "graphqlwork.cvgfqdtlcqye.us-east-2.rds.amazonaws.com",
