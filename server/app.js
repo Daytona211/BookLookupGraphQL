@@ -9,7 +9,7 @@ app.get("/", (req, res)=>{
 
 const db = new Client({
   user: "daytona",
-  host: "graphqlwork.cvgfqdtlcqye.us-east-2.rds.amazonaws.com",
+  host: process.env.DATABASE_URL,
   database: "booklookup",
   password: "123456789",
   port: 5432
